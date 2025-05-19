@@ -164,7 +164,7 @@ main {
 }
 
 #game_grid.disabled-grid .card {
-    opacity: 0.7;
+    opacity: 1;
     cursor: not-allowed;
 }
 
@@ -185,8 +185,8 @@ main {
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed to contain to see full image, adjust if needed */
-  border-radius: 6px; /* Rounded corners for images within the card */
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .front_face,
@@ -194,7 +194,7 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hides the back of the element when rotated */
+  backface-visibility: hidden;
   top: 0;
   left: 0;
 }
@@ -236,6 +236,21 @@ body.dark-theme .card.matched {
     box-shadow: 0 0 10px #66bb6a;
 }
 
+.card.matched .front_face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: multiply;
+  border-radius: 6px;
+}
+
+body.dark-theme .card.matched .front_face::after {
+    background: rgba(0, 0, 0, 0.5);
+}
 
 footer {
   margin-top: 30px;
