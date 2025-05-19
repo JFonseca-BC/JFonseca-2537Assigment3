@@ -160,12 +160,15 @@ $(document).ready(function() {
       console.log("handleCardClick called. gameStarted:", gameStarted, "lockBoard:", lockBoard); // DEBUG LINE
       if (!gameStarted || lockBoard) return;
       const $clickedCard = $(this);
+      console.log("Card element:", $clickedCard[0]); // DEBUG LINE
 
       if ($clickedCard.is(firstCard) || $clickedCard.hasClass("matched") || $clickedCard.hasClass("flip")) {
-          return;
+        console.log("Exiting early from handleCardClick"); // DEBUG LINE
+        return;
       }
 
       $clickedCard.addClass("flip");
+      console.log(".flip class added? ", $clickedCard.hasClass("flip")); // DEBUG LINE
       clicks++;
       updateHeaderDisplay();
 
