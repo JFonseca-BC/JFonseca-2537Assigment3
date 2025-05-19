@@ -96,7 +96,6 @@ $(document).ready(function() {
       timerId = null;
       if(powerUpTimeoutId) clearTimeout(powerUpTimeoutId);
       powerUpTimeoutId = null;
-      gameStarted = false;
   }
 
   async function fetchUniquePokemon(count) {
@@ -281,6 +280,7 @@ $(document).ready(function() {
       enableControls();
       $gameGrid.empty().removeClass('disabled-grid');
       resetGameVariables();
+      gameStarted = false;
       // Reflect current difficulty settings in header before new game starts
       const settings = difficultySettings[currentDifficulty];
       totalPairs = settings.pairs;
