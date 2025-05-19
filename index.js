@@ -157,6 +157,7 @@ $(document).ready(function() {
   }
 
   function handleCardClick() {
+      console.log("handleCardClick called. gameStarted:", gameStarted, "lockBoard:", lockBoard); // DEBUG LINE
       if (!gameStarted || lockBoard) return;
       const $clickedCard = $(this);
 
