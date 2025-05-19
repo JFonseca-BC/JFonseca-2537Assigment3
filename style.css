@@ -174,6 +174,7 @@ main {
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  perspective: 1000px;
   cursor: pointer;
   background-color: transparent;
   border-radius: 8px;
@@ -200,7 +201,7 @@ main {
 
 .back_face {
   /* Style for the back of the card */
-  background-color: #a2a2a2; /* Default, can be themed */
+  background-color: #a2a2a2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,9 +214,9 @@ main {
 }
 
 .front_face {
-  transform: rotateY(180deg); /* Orients front face correctly after card flip */
-  background-color: #fff; /* Background for the front face image area */
-  padding: 5px; /* Small padding around the pokemon image */
+  transform: rotateY(180deg);
+  background-color: #fff;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -228,7 +229,7 @@ body.dark-theme .front_face {
   /* Style for matched cards, e.g., slightly transparent or bordered */
   opacity: 0.6;
   cursor: default;
-  box-shadow: 0 0 10px #4CAF50; /* Green glow for matched cards */
+  box-shadow: 0 0 10px #4CAF50;
 }
 
 body.dark-theme .card.matched {
