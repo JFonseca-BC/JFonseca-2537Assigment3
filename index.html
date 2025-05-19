@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- import jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="index.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
 
-<body>
-  <div id="game_grid">
-    <div class="card">
-      <img id="img1" class="front_face" src="001.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img2" class="front_face" src="002.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img3" class="front_face" src="003.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img4" class="front_face" src="001.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img5" class="front_face" src="002.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img6" class="front_face" src="003.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-  </div>
-</body>
+  <body>
+    <header id="game_header">
+      <h1>Pokémon Memory Match</h1>
+      <div id="game_stats">
+        <span>Clicks: <span id="clicks_count">0</span></span>
+        <span>Matches: <span id="pairs_matched_count">0</span></span>
+        <span>Left: <span id="pairs_left_count">0</span></span>
+        <span>Total Pairs: <span id="total_pairs_count">0</span></span>
+        <span>Time: <span id="timer_display">0:00</span></span>
+      </div>
+      <div id="game_controls">
+        <label for="difficulty_select">Difficulty:</label>
+        <select id="difficulty_select">
+          <option value="easy">Easy (3 Pairs)</option>
+          <option value="medium">Medium (6 Pairs)</option>
+          <option value="hard">Hard (10 Pairs)</option>
+        </select>
+        <button id="start_button">Start Game</button>
+        <button id="reset_button" disabled>Reset Game</button>
+        <button id="theme_toggle">Dark Theme</button>
+        <button id="power_up_button" disabled>Reveal Cards (Power-Up)</button>
+      </div>
+      <div id="message_area">Select difficulty and click 'Start Game' to begin!</div>
+      <div id="loading_indicator" style="display:none;">Loading Pokémon... <span class="pokeball-spinner"></span></div>
+    </header>
+
+    <main>
+      <div id="game_grid">
+        </div>
+    </main>
+
+    <footer>
+      <p>COMP 2537 - Assignment 3</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
 
 </html>
