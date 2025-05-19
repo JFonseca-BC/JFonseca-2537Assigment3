@@ -1,51 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Memory Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
-  <body>
-    <header id="game_header">
-      <h1>Pokémon Memory Match</h1>
-      <div id="game_stats">
-        <span>Clicks: <span id="clicks_count">0</span></span>
-        <span>Matches: <span id="pairs_matched_count">0</span></span>
-        <span>Left: <span id="pairs_left_count">0</span></span>
-        <span>Total Pairs: <span id="total_pairs_count">0</span></span>
-        <span>Time: <span id="timer_display">0:00</span></span>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="bg-white shadow-sm border-bottom py-3">
+      <div class="container">
+        <h1 class="text-center text-danger mb-4">Pokémon Memory Match</h1>
+        
+        <div class="d-flex flex-wrap justify-content-center gap-4 mb-3">
+          <div class="d-flex gap-3 flex-wrap justify-content-center">
+            <span class="badge bg-primary">Clicks: <span id="clicks_count" class="badge bg-light text-dark">0</span></span>
+            <span class="badge bg-success">Matches: <span id="pairs_matched_count" class="badge bg-light text-dark">0</span></span>
+            <span class="badge bg-warning text-dark">Left: <span id="pairs_left_count" class="badge bg-light text-dark">0</span></span>
+            <span class="badge bg-info">Total: <span id="total_pairs_count" class="badge bg-light text-dark">0</span></span>
+            <span class="badge bg-danger">Time: <span id="timer_display" class="badge bg-light text-dark">0:00</span></span>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+          <select id="difficulty_select" class="form-select w-auto">
+            <option value="easy">Easy (3 Pairs)</option>
+            <option value="medium">Medium (6 Pairs)</option>
+            <option value="hard">Hard (10 Pairs)</option>
+          </select>
+          <button id="start_button" class="btn btn-primary">Start Game</button>
+          <button id="reset_button" class="btn btn-outline-danger" disabled>Reset</button>
+          <button id="theme_toggle" class="btn btn-secondary">Dark Theme</button>
+          <button id="power_up_button" class="btn btn-warning" disabled>Power-Up</button>
+        </div>
+
+        <div id="message_area" class="alert alert-info mb-0 text-center"></div>
+        <div id="loading_indicator" class="text-center mt-2" style="display:none;">
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <span class="ms-2">Loading Pokémon...</span>
+        </div>
       </div>
-      <div id="game_controls">
-        <label for="difficulty_select">Difficulty:</label>
-        <select id="difficulty_select">
-          <option value="easy">Easy (3 Pairs)</option>
-          <option value="medium">Medium (6 Pairs)</option>
-          <option value="hard">Hard (10 Pairs)</option>
-        </select>
-        <button id="start_button">Start Game</button>
-        <button id="reset_button" disabled>Reset Game</button>
-        <button id="theme_toggle">Dark Theme</button>
-        <button id="power_up_button" disabled>Reveal Cards (Power-Up)</button>
-      </div>
-      <div id="message_area">Select difficulty and click 'Start Game' to begin!</div>
-      <div id="loading_indicator" style="display:none;">Loading Pokémon... <span class="pokeball-spinner"></span></div>
     </header>
 
-    <main>
-      <div id="game_grid">
-        </div>
+    <main class="container my-4 flex-grow-1">
+      <div id="game_grid" class="mx-auto"></div>
     </main>
 
-    <footer>
-      <p>COMP 2537 - Assignment 3</p>
+    <footer class="mt-auto bg-light border-top py-3">
+      <div class="container text-center">
+        <p class="mb-0 text-muted">COMP 2537 - Assignment 3</p>
+      </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
   </body>
-
 </html>

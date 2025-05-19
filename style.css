@@ -1,174 +1,4 @@
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  transition: background-color 0.3s, color 0.3s;
-  text-align: center;
-}
-
-/* Dark Theme */
-body.dark-theme {
-  background-color: #333;
-  color: #f0f0f0;
-}
-
-body.dark-theme #game_header {
-  background-color: #444;
-  border-bottom: 1px solid #555;
-}
-
-body.dark-theme button {
-  background-color: #555;
-  color: #f0f0f0;
-  border: 1px solid #666;
-}
-
-body.dark-theme button:hover {
-  background-color: #666;
-}
-
-body.dark-theme button:disabled {
-  background-color: #484848;
-  color: #888;
-}
-
-body.dark-theme select {
-  background-color: #555;
-  color: #f0f0f0;
-  border: 1px solid #666;
-}
-
-body.dark-theme #message_area {
-    color: #eee;
-}
-
-body.dark-theme .card .back_face {
-    border: 2px solid #555;
-}
-
-
-#game_header {
-  background-color: #fff;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: background-color 0.3s, border-bottom 0.3s;
-}
-
-#game_header h1 {
-  margin: 0 0 10px 0;
-  font-size: 2em;
-  color: #e63946;
-}
-
-body.dark-theme #game_header h1 {
-    color: #ff6b6b;
-}
-
-
-#game_stats span, #game_controls label {
-  margin: 0 10px;
-  font-size: 0.9em;
-}
-
-#game_controls {
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-button, select {
-  padding: 8px 15px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-button:hover {
-  background-color: #e9e9e9;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-button:disabled {
-  background-color: #e0e0e0;
-  color: #aaa;
-  cursor: not-allowed;
-}
-
-#loading_indicator {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #e63946;
-}
-
-body.dark-theme #loading_indicator {
-    color: #ff6b6b;
-}
-
-.pokeball-spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    border-top-color: #e63946;
-    animation: spin 1s ease-in-out infinite;
-    margin-left: 8px;
-    vertical-align: middle;
-}
-
-body.dark-theme .pokeball-spinner {
-    border-top-color: #ff6b6b;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-#message_area {
-  margin-top: 10px;
-  font-size: 1.1em;
-  font-weight: bold;
-  min-height: 20px;
-}
-
-.win-message {
-  color: #28a745; /* Green for win */
-}
-body.dark-theme .win-message { color: #32cd32; }
-
-
-.lose-message {
-  color: #dc3545; /* Red for lose */
-}
-body.dark-theme .lose-message { color: #ff6961; }
-
-
-main {
-  padding: 20px;
-}
-
-#game_grid {
-  display: grid;
-  gap: 10px;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 10px;
-}
-
-#game_grid.disabled-grid .card {
-    opacity: 1;
-    cursor: not-allowed;
-}
-
-
+/* Custom CSS for card flip and dark theme overrides */
 .card {
   aspect-ratio: 2 / 3;
   position: relative;
@@ -177,16 +7,14 @@ main {
   perspective: 1000px;
   cursor: pointer;
   background-color: transparent;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: none;
 }
-
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 0.25rem;
 }
 
 .front_face,
@@ -197,70 +25,76 @@ main {
   backface-visibility: hidden;
   top: 0;
   left: 0;
+  border-radius: 0.25rem;
 }
 
 .back_face {
-  /* Style for the back of the card */
   background-color: #a2a2a2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 2px solid #fff;
-  box-sizing: border-box;
 }
 
 .card.flip {
-  transform: rotateY(180deg); /* Flips the card */
+  transform: rotateY(180deg);
 }
 
 .front_face {
   transform: rotateY(180deg);
   background-color: #fff;
-  padding: 5px;
-  box-sizing: border-box;
+}
+
+.card.matched {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Dark theme overrides */
+body.dark-theme {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+body.dark-theme header {
+  background-color: #2d3339 !important;
+  border-color: #495057 !important;
+}
+
+body.dark-theme .card .back_face {
+  border-color: #495057;
 }
 
 body.dark-theme .front_face {
-    background-color: #505050;
+  background-color: #495057;
 }
 
-
-.card.matched {
-  /* Style for matched cards, e.g., slightly transparent or bordered */
-  opacity: 1;
-  cursor: default;
-  box-shadow: 0 0 10px #4CAF50;
+body.dark-theme .alert-info {
+  background-color: #1c1f23;
+  border-color: #2d3339;
+  color: #dee2e6;
 }
 
-body.dark-theme .card.matched {
-    box-shadow: 0 0 10px #66bb6a;
+body.dark-theme .btn-secondary {
+  background-color: #495057;
+  border-color: #6c757d;
 }
 
-.card.matched .front_face::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  mix-blend-mode: multiply;
-  border-radius: 6px;
+body.dark-theme .form-select {
+  background-color: #2d3339;
+  border-color: #495057;
+  color: #f8f9fa;
 }
 
-body.dark-theme .card.matched .front_face::after {
-    background: rgba(0, 0, 0, 0.5);
+#game_grid {
+  gap: 1rem;
+  max-width: 800px;
 }
 
-footer {
-  margin-top: 30px;
-  padding: 15px;
-  font-size: 0.8em;
-  color: #777;
-  border-top: 1px solid #eee;
+#game_grid.disabled-grid .card {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
-body.dark-theme footer {
-    color: #aaa;
-    border-top: 1px solid #444;
-}
+.win-message { color: #198754; }
+.lose-message { color: #dc3545; }
+
+body.dark-theme .win-message { color: #20c997; }
+body.dark-theme .lose-message { color: #ff6b6b; }
