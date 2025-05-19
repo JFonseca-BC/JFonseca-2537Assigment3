@@ -96,7 +96,7 @@ $(document).ready(function() {
       timerId = null;
       if(powerUpTimeoutId) clearTimeout(powerUpTimeoutId);
       powerUpTimeoutId = null;
-      gameStarted = false;
+      // gameStarted = false;
   }
 
   async function fetchUniquePokemon(count) {
