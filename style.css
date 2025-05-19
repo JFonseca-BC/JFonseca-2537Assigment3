@@ -227,7 +227,7 @@ body.dark-theme .front_face {
 
 .card.matched {
   /* Style for matched cards, e.g., slightly transparent or bordered */
-  opacity: 0.6;
+  opacity: 1;
   cursor: default;
   box-shadow: 0 0 10px #4CAF50;
 }
